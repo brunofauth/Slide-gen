@@ -1,0 +1,79 @@
+---
+lang: pt-BR
+
+
+# BEAMER VARIABLES {{{
+
+# slideaspect ratio (43 for 4:3 [default], 169 1610 149 141 54 32
+aspectratio: 43
+
+# add extra beamer option with \setbeameroption{}
+# beameroption: ''
+
+# author affiliations: can be a list when there are multiple authors
+institute: ATITUS Educação
+
+# logo image for slides
+# logo: path/to/logo
+
+# (default is empty [no symbols] can be frame, # vertical, and horizontal)
+navigation: ''
+
+# enables “title pages” for new sections (default is true)
+section‐titles: true
+
+# beamer themes
+# https://hartwork.org/beamer-theme-matrix/
+# Theme Variables: theme, colortheme, fonttheme, innertheme, outertheme
+# theme: Dresden
+colortheme: beaver
+# Theme option variables (each one is a list): themeoptions, colorthemeoptions,
+# fontthemeoptions, innerthemeoptions, outerthemeoptions
+
+# }}} BEAMER VARIABLES
+
+
+# LATEX VARIABLES {{{
+
+# The use of xelatex or lualatex as the PDF engine requires fontspec.
+header-includes:
+- \usepackage{fontspec}
+
+# Using the fontspec package (requires xelatex or lualatex), you can use the
+# name of any system font for these settings: mainfont, sansfont, monofont, mathfont
+mainfont: "DejaVu Serif"
+
+# In 'xelatex' and 'lualatex', you can pass options (the bits that go between
+# the square brackets in a \setmainfont[]{} command) to your 'fontspec' fonts
+# with: mainfontoptions, sansfontoptions, monofontoptions, mathfontoptions
+
+# mainfontoptions:
+# - Numbers=Lowercase
+# - Numbers=Proportional
+
+# If, while using lualatex, a glyph is not found in a main/sans/monofont, you
+# can tell pandoc to try fonts from these lists: 
+# mainfontfallback, sansfontfallback, monofontfallback
+
+# mainfontfallback:
+# - "FreeSans:"
+# - "NotoColorEmoji:mode=harf"
+
+toc: false
+toc-depth: 2
+toc-title: Índice
+
+# }}} LATEX VARIABLES
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+title: "Transtorno de Déficit de Atenção e Hiperatividade"
+subtitle: "da série: Transtornos do Desenvolvimento"
+
+author:
+- Bruno Vinícius Fauth
+
+date: 02/12/2025
+...
+

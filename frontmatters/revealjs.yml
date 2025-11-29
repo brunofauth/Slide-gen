@@ -1,0 +1,26 @@
+---
+lang: pt-BR
+
+
+# REVEALJS VARIABLES {{{
+
+revealjs-url: "https://unpkg.com/reveal.js@5.2.1"
+
+# All [reveal.js](https://revealjs.com/config/) configuration options can be
+# set through variables. For example, themes can be used by setting the theme
+# variable: 'theme: moon'
+
+# }}} REVEALJS VARIABLES
+
+
+# -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+title: "Transtorno de Déficit de Atenção e Hiperatividade"
+subtitle: "da série: Transtornos do Desenvolvimento"
+
+author:
+- Bruno Vinícius Fauth
+
+date: 02/12/2025
+...
+
