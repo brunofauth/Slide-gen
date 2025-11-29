@@ -10,7 +10,19 @@ md_with_extensions="$md_with_extensions+fancy_lists"
 md_with_extensions="$md_with_extensions+link_attributes"
 
 
+cmd_notify_send=notify-send
+
+
 main() {
+    if ! command -v pandoc &>/dev/null; then
+        >&2 echo "Please install pandoc to use this script."
+        return 1
+    fi
+    if ! command -v "$1" &>/dev/null; then
+        >&2 echo "Optional dependency $1 not found. Skipping."
+        cmd_notify_send=:
+    fi
+
     local input_file="$1"
     local _input_file_bn="$(basename "$input_file")"
     local _input_file_dn="$(dirname "$input_file")"
@@ -46,19 +58,19 @@ main() {
             "Missing character: There is no <char> (U+ABCD) in font <font-name>" \
             "albatross U+ABCD" \
             "to get a list of system fonts which have that character in them."
-        notify-send \
+        "$cmd_notify_send" \
             --urgency critical \
             -t 3000 \
             "${0%%*/} @ $(realpath ${0%/*})" \
             'Failed Miserably'
     else
-        notify-send \
+        "$cmd_notify_send" \
             -t 3000 \
             "${0%%*/} @ $(realpath ${0%/*})" \
             "Generated $output_file"
         echo "File generated at: $output_file"
     fi
-    return
+    return "$pandoc_exit_code"
 }
 
 main "$@"

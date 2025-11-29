@@ -381,11 +381,11 @@ dois ambientes diferentes** (casa e escola, ou casa e trabalho...)
 
 ::: incremental
 
-A) pelo menos seis sintomas de desatenção ou 6 sintomas de
+- A: pelo menos seis sintomas de desatenção ou 6 sintomas de
    hiperatividade/impulsividade, persistindo por pelo menos seis meses e
    trazendo algum prejuízo (social, acadêmico, profissional).
 
-B) Vários desses sintomas começam **antes dos 12** anos
+- B: Vários desses sintomas começam **antes dos 12** anos
 
 :::
 
@@ -394,12 +394,12 @@ B) Vários desses sintomas começam **antes dos 12** anos
 
 ::: incremental
 
-C) Sintomas acontecem em pelo menos **2 ambientes diferentes**
+- C: Sintomas acontecem em pelo menos **2 ambientes diferentes**
 
-D) Evidências claras de que os sintomas **interferem no funcionamento** social,
+- D: Evidências claras de que os sintomas **interferem no funcionamento** social,
    acadêmico ou profissional, ou de que reduzem sua qualidade
 
-E) Os sintomas não ocorrem somente na vigência de um episódio psicótico e
+- E: Os sintomas não ocorrem somente na vigência de um episódio psicótico e
    **não são mais bem explicados por outros transtornos** mentais
 
 :::
@@ -407,12 +407,12 @@ E) Os sintomas não ocorrem somente na vigência de um episódio psicótico e
 
 ## Critério A.1 (domínio desatenção)
 
-![](img/dsm5-criterio-tdah-a1.png)
+![](img/dsm5-criterio-tdah-a1.png){ .r-stretch }
 
 
 ## Critério A.2 (domínios hiperatividade/impulsividade)
 
-![](img/dsm5-criterio-tdah-a2.png)
+![](img/dsm5-criterio-tdah-a2.png){ .r-stretch }
 
 
 ## Escalas de Triagem (facilitam aplicação do critério A)

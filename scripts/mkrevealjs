@@ -39,7 +39,19 @@ pandoc_options="$pandoc_options --embed-resources=true"
 pandoc_options="$pandoc_options --slide-level=2"
 
 
+cmd_notify_send=notify-send
+
+
 main() {
+    if ! command -v pandoc &>/dev/null; then
+        >&2 echo "Please install pandoc to use this script."
+        return 1
+    fi
+    if ! command -v "$1" &>/dev/null; then
+        >&2 echo "Optional dependency $1 not found. Skipping."
+        cmd_notify_send=:
+    fi
+
     local input_file="$1"
     local _input_file_bn="$(basename "$input_file")"
     local _input_file_dn="$(dirname "$input_file")"
@@ -67,20 +79,20 @@ main() {
     printf 'Took %s to run Pandoc!\n' "$(date --date="@$(expr "$(date +%s)" - $start_time)" "+%M:%S")"
 
     if [ "$pandoc_exit_code" -ne 0 ]; then
-        notify-send \
+        "$cmd_notify_send" \
             --urgency critical \
             -t -1 \
             "${0%%*/} @ $(realpath ${0%/*})" \
             'Failed Miserably'
     else
-        notify-send \
+        "$cmd_notify_send" \
             -t -1 \
             "${0%%*/} @ $(realpath ${0%/*})" \
             "Generated $output_file"
         echo "File generated at: $output_file"
     fi
 
-    return "$pandoc_pid"
+    return "$pandoc_exit_code"
 }
 
 
