@@ -7,45 +7,58 @@ md_with_extensions="$md_with_extensions+auto_identifiers"
 # md_with_extensions="$md_with_extensions+implicit_figures"
 md_with_extensions="$md_with_extensions+fenced_divs"
 md_with_extensions="$md_with_extensions+fancy_lists"
-
-# --include-in-header="./header.tex" \
-pandoc \
-    -t beamer \
-    -f "$md_with_extensions" \
-    --table-of-contents \
-    --shift-heading-level-by=0 \
-    --number-section \
-    --pdf-engine=lualatex \
-    --slide-level=2 \
-    "$1" \
-    -o "./output/${1%.*}.pdf" &
-
-pandoc_pid=$!
-echo Started Pandoc
-
-start_time=$(date +%s)
-while kill -0 $pandoc_pid &>/dev/null; do
-    sleep 2
-    printf 'Waiting for %s...\r' "$(date --date="@$(expr "$(date +%s)" - $start_time)" "+%M:%S")"
-done
-echo
-
-if [ "$?" -ne 0 ]; then
-    >&2 printf '%s\n    %s\n\nRun (this program is bundled with latex):\n\t%s\n\n%s' \
-        "Hi me! If you're getting: " \
-        "Missing character: There is no <char> (U+ABCD) in font <font-name>" \
-        "albatross U+ABCD" \
-        "to get a list of system fonts which have that character in them."
-    notify-send \
-        --urgency critical \
-        -t 3000 \
-        "mkbeamer @ $(realpath ${0%/*})" \
-        'Failed Miserably'
-else
-    notify-send \
-        -t 3000 \
-        "mkbeamer @ $(realpath ${0%/*})" \
-        'Done'
-fi
+md_with_extensions="$md_with_extensions+link_attributes"
 
 
+main() {
+    local input_file="$1"
+    local _input_file_bn="$(basename "$input_file")"
+    local _input_file_dn="$(dirname "$input_file")"
+    local output_file="$_input_file_dn/output/${_input_file_bn%.*}.pdf"
+
+    pandoc \
+        --table-of-contents \
+        --shift-heading-level-by=0 \
+        --number-section \
+        --pdf-engine=lualatex \
+        --slide-level=2 \
+        --resource-path="$_input_file_dn" \
+        -f "$md_with_extensions" \
+        -t beamer \
+        "$input_file" \
+        -o "$output_file" &
+
+    pandoc_pid=$!
+    echo Started Pandoc
+
+    start_time=$(date +%s)
+    while kill -0 $pandoc_pid &>/dev/null; do
+        sleep 2
+        printf 'Waiting for %s...\r' "$(date --date="@$(expr "$(date +%s)" - $start_time)" "+%M:%S")"
+    done
+    wait $pandoc_pid &>/dev/null # We don't wait at all here, we just call 'wait' to get the code.
+    pandoc_exit_code=$?
+    printf 'Took %s to run Pandoc!\n' "$(date --date="@$(expr "$(date +%s)" - $start_time)" "+%M:%S")"
+
+    if [ "$pandoc_pid" -ne 0 ]; then
+        >&2 printf '%s\n    %s\n\nRun (this program is bundled with latex):\n\t%s\n\n%s' \
+            "Hi me! If you're getting: " \
+            "Missing character: There is no <char> (U+ABCD) in font <font-name>" \
+            "albatross U+ABCD" \
+            "to get a list of system fonts which have that character in them."
+        notify-send \
+            --urgency critical \
+            -t 3000 \
+            "${0%%*/} @ $(realpath ${0%/*})" \
+            'Failed Miserably'
+    else
+        notify-send \
+            -t 3000 \
+            "${0%%*/} @ $(realpath ${0%/*})" \
+            "Generated $output_file"
+        echo "File generated at: $output_file"
+    fi
+    return
+}
+
+main "$@"

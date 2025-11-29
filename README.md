@@ -1,6 +1,9 @@
-1. Copy one of the .yml file from frontmatters/ into the target .md file,
-   inside the project directory
+1. Create a directory inside aulas/ for your new slideshow
 
-2. Copy one of the generator scripts from scripts/ into the project directory
+2. Put a <somename>.md inside your slideshow directory
 
-3. run the script (example: ./mkrevealjs <slideshow.md>)
+2. Copy one of *.yml file from frontmatters/ into your <somename>.md
+
+3. run the script the appropriate script from scripts/ with the path to your <somename>.md file
+
+    - Example: ./scripts/mkrevealjs ./aulas/tdah-atitus-2025/aula-simples.md

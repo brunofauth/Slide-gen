@@ -7,6 +7,7 @@ md_with_extensions="$md_with_extensions+auto_identifiers"
 # md_with_extensions="$md_with_extensions+implicit_figures"
 md_with_extensions="$md_with_extensions+fenced_divs"
 md_with_extensions="$md_with_extensions+fancy_lists"
+md_with_extensions="$md_with_extensions+link_attributes"
 
 
 pandoc_options=
@@ -25,12 +26,12 @@ pandoc_options="$pandoc_options --embed-resources=true"
 # Include an automatically generated TOC in the output document. This option
 # has no effect unless -s/--standalone is used, and it has no effect on man,
 # docbook4, docbook5, or jats output.
-pandoc_options="$pandoc_options --table-of-contents"
+#pandoc_options="$pandoc_options --table-of-contents"
 
 # Number section headings in LaTeX, ConTeXt, HTML, Docx, ms, or EPUB output. By
 # default, sections are not numbered.
 # --> pandoc(1) § Options affecting specific writers
-pandoc_options="$pandoc_options --number-section"
+#pandoc_options="$pandoc_options --number-section"
 
 # Headings above this level in the hierarchy are used to divide the slide show
 # into sections; headings below this level create subheads within a slide. 
@@ -40,11 +41,14 @@ pandoc_options="$pandoc_options --slide-level=2"
 
 main() {
     local input_file="$1"
-    local _input_file_basename="$(basename "$input_file")"
-    local output_file="$(dirname "$input_file")/output/${_input_file_basename%.*}.html"
+    local _input_file_bn="$(basename "$input_file")"
+    local _input_file_dn="$(dirname "$input_file")"
+    local output_file="$_input_file_dn/output/${_input_file_bn%.*}.html"
 
     pandoc \
         $pandoc_options \
+        --css=css/default.css \
+        --resource-path="$_input_file_dn" \
         -f "$md_with_extensions" \
         -t revealjs \
         "$input_file" \
