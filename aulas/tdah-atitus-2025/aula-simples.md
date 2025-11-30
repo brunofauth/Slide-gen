@@ -606,4 +606,4 @@ hiperexcitabilidade pode simular a impulsividade do TDAH.
 
 - No manejo de adultos, **excluir/manejar comorbidades** antes
 
-- Não dar Venvase sem **excluir TUS e risco de TAB** antes!!!!!!!!!
+- Não dar Venvanse sem **excluir TUS e risco de TAB** antes!!!!!!!!!
