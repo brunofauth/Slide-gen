@@ -18,8 +18,8 @@ main() {
         >&2 echo "Please install pandoc to use this script."
         return 1
     fi
-    if ! command -v "$1" &>/dev/null; then
-        >&2 echo "Optional dependency $1 not found. Skipping."
+    if ! command -v notify-send &>/dev/null; then
+        >&2 echo "Optional dependency notify-send not found. Skipping."
         cmd_notify_send=:
     fi
 
