@@ -140,12 +140,16 @@ Transtorno do neuro desenvolvimento com padrão persistente de:
 
 ## Epidemiologia
 
+::: incremental
+
 - Prevalência mundial é de:
     - 5% em menores de 18 anos; 
     - e de 2.5% em nos demais indivíduos
         - (então metade simplesmente se cura???)
 
 - É 2-4x mais comum em meninos do que meninas
+
+:::
 
 
 ## Fatores de Risco
@@ -300,6 +304,8 @@ compensatórias **antes do fim da poda**.
 
 ### Desatenção
 
+::: incremental
+
 - Pré-escolar: brinca por 5 minutos com cada brinquedo e troca, não acaba as
   atividades (exemplo: pintar desenhos)
 
@@ -310,10 +316,13 @@ compensatórias **antes do fim da poda**.
 
 - Adulto: desorganizado, não planeja atividades, perde prazos
 
+:::
 
 ## Domínios Sintomáticos
 
 ### Hiperatividade
+
+::: incremental
 
 - Pré-escolar: corre de um lado para outro, sobe nos móveis, não para
 
@@ -324,10 +333,13 @@ compensatórias **antes do fim da poda**.
 - Adulto: até fica parado, mas não é confortável e você tem a impressão,
   falando com ele, de que ele já está planejando como sair dali
 
+:::
 
 ## Domínios Sintomáticos
 
 ### Impulsividade
+
+::: incremental
 
 - Pré-escolar: se machuca (acidentes), pode brigar com os colegas
 
@@ -337,6 +349,8 @@ compensatórias **antes do fim da poda**.
   desnecessária
 
 - Adulto: compra uma moto
+
+:::
 
 
 ## Domínios Sintomáticos
@@ -361,12 +375,16 @@ A magnitude dos sintomas é influenciada por:
 
 ## Fatores Confundidores
 
+::: incremental
+
 - Ambientes com contenção externa (regras) reduzem os sintomas.
     - Em contrapartida, ambientes pouco que fornecem pouca contenção externa
       podem fomentar comportamentos que simulam TDAH
 
 - Tarefas divertidas e engajantes, com **gratificação rápida**, favorecem a
   sustentação da atenção
+
+:::
 
 
 ## Fatores Confundidores
